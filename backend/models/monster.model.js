@@ -8,12 +8,12 @@ const monsterSchema = new Schema({
   name: {type: String, required: true},
   link: {type: String, required: true, default: ""},
   family: {type: String, required: true, default: ""},
-  level: {type: Number, required: true, default: ""},
+  level: {type: Number, required: true, default: 0},
   alignment: {type: String, required: true, default: ""},
   type: {type: String, required: true, default: ""},
   size: {type: String, required: true, default: ""},
   traits: {type: [String], required: true},
-  recallKnowledge: {type: String, required: true, default: ""},
+  recallknowledge: {type: String, required: true, default: ""},
   source: {type: String, required: true, default: ""},
   perception: {type: String, required: true, default: ""},
   languages: {type: [String], required: true},
@@ -33,11 +33,9 @@ const monsterSchema = new Schema({
   ac: {type: String, required: true, default: ""},
   hp: {type: String, required: true, default: ""},
   speed: {type: String, required: true, default: ""},
-  spells: {type: [{
-    name: String,
-    text: String
-  }], required: true, default: {}},
-  skills: {type: {}, required: true},
+  spells: {type: [{}], required: true, default: []},
+  skills: {type: {}, required: true, default: {}},
+  attributes: {type: {}, default: {}},
   items: {type: [String], required: true},
   actions: {type: [{
     name: String,
@@ -50,7 +48,9 @@ const monsterSchema = new Schema({
     actions: String,
     damage: String
   }], required: true, default: {}},
-  text: {type: String, required: true, default: ""}
+  text: {type: String, required: true, default: ""},
+  senses: {type: {}},
+  custom: {type: Boolean, default: false}
 });
 
 const Monster = mongoose.model('Monster', monsterSchema);

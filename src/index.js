@@ -1,70 +1,9 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App';
 
-/*
-function Square(props) {
-  return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
-}
-*/
-
-class TierRow extends React.Component {
-  render() {
-    return (
-      <div className="tier-row">
-        <ul>
-          {fillRow()}
-        </ul>
-      </div>
-    );
-  }
-}
-
-function Square(img) {
-  return (
-    <li className="square">
-      <img src={img} alt=""/>
-    </li>
-  );
-}
-//row to be row in tierlist
-//i to length of row
-function fillRow(row) {
-  let img = './favicon.ico';
-  let max = 30;
-  let squares = [];
-  for(let i=0; i<max; i++) {
-    squares.push(Square(img));
-  }
-  return squares;
-}
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rows: [[], []],
-    }
-  }
-  render() {
-    const rowsJSX = this.state.rows.map((imageArray) => {
-      return (
-      <div id={this.state.rows.indexOf(imageArray)}>
-        <TierRow />
-      </div>
-      )
-    });
-    return (
-      <div className="TierList">
-        {rowsJSX}
-      </div>
-    );
-  }
-}
 // ========================================
 /*
 function sideBar(props) {

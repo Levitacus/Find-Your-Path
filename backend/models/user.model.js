@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
-const bcrypt = require('bcryptjs');
+//const uniqueValidator = require('mongoose-unique-validator');
 
 require('dotenv').config();
 //const CharSchema = require('./character.model').charSchema;
@@ -19,7 +18,8 @@ const userSchema = new Schema({
     index: true,
     unique: true, 
     trim: true,
-    minlength: 3
+    minlength: 3,
+    maxlength: 255
   },
   email: {
     type: String, 
@@ -27,29 +27,21 @@ const userSchema = new Schema({
     lowercase: true,
     required: [true, "can't be blank"],
     match: [/\S+@\S+\.\S+/, 'is invalid'],
-    index: true
+    index: true,
+    maxlength: 255
   },
   characters: {type: []},
   encounters: {type: []},
   password: {
     type: String,
-    required: true
+    required: true,
+    minlength: 6
   }
 }, {
   timestamps: true,
 });
 
-userSchema.plugin(uniqueValidator, {message: 'is already taken.'});
-
-// hash the password
-userSchema.methods.generateHash = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-// checking if password is valid
-userSchema.methods.validPassword = function(password) {
-  return bcrypt.compareSync(password, this.password);
-};
+//userSchema.plugin(uniqueValidator, {message: 'is already taken.'});
 
 const User = mongoose.model('User', userSchema);
 

@@ -1,60 +1,122 @@
-  body {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+/*Navbar Styles*/
+.navbar-custom {
+  max-height: 100px;
+}
+
+.navbar-item{
+  margin-left: 2rem;
+}
+
+.navbar-item a {
+  color: white;
+}
+
+.navbar-item a:hover {
+  color: orangered; /*ff4500*/
+}
+ 
+.list-menu-float:hover:before {
+  animation-name: buttonAnimation;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
   }
   
-  ol, ul {
-    padding-left: 30px;
+  @keyframes buttonAnimation {
+  /* wave animation */
+  0% { opacity:1; transform:scale(1)}
+  100% { opacity:0; transform:scale(2); }
+  }
+  
+  .signup-sm {
+    min-width: 330px;
+    max-width: 384px;
+    max-height: 500px;
+    border-radius: 5%;
+  }
+
+  .fg-light {
+    color: white;
+  }
+
+  .centered {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* Accordion Styles */
+  .accordion-section {
+    overflow-y: scroll;
+    height: calc(100vh - 100px - 2rem);
+  }
+
+  .fillparent {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
+  }
+
+  /* Card Header */
+  .card-header-custom {
+    display: block;
+  }
+
+  .header-name {
+    float: left;
+  }
+
+  .header-family {
+    padding-left: 1em;
+  }
+
+  .header-ac {
+    padding-left: 1em;
+  }
+  
+  .header-hp {
+    padding-left: 1em;
+  }
+
+  .header-level {
+    padding-left: 1em;
+  }
+
+
+  /* Card Body */
+  .card-body {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  .stat-block {
+    display: block;
     list-style-type: none;
-  }
-  
-  li {
-    float: left;
+    overflow: hidden;
+    padding: 0px;
   }
 
-  .tier-row {
-    border: 2px solid #999;
+  .stat-item {
+    display: block;
+    float: left;
+    width: 33%;
+    /*border: 1px solid black;*/
+    padding: 0px;
   }
 
-  .tier-row:after {
-    clear: both;
-    content: "";
-    display: table;
+  .flex-start {
+    align-self: flex-start;
   }
-  
-  .status {
-    margin-bottom: 10px;
+
+  .text-description {
+    overflow-y: scroll;
+    max-height: 200px;
   }
-  
-  .square {
-    background: #fff;
-    /*border: 1px solid #999; */
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: auto;
-    height: auto;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: auto;
-  }
-  
-  .square:focus {
-    outline: none;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
-  
