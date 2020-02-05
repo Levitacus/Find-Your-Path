@@ -12,12 +12,12 @@ body {
   margin-left: 2rem;
 }
 
-.navbar-item a {
-  color: white;
+a {
+  color: white !important;
 }
 
-.navbar-item a:hover {
-  color: orangered; /*ff4500*/
+a:hover {
+  color: orangered !important; /*ff4500*/
 }
  
 .list-menu-float:hover:before {
@@ -58,11 +58,10 @@ body {
 
   .fillparent {
     width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
   /* Card Header */
@@ -70,24 +69,18 @@ body {
     display: block;
   }
 
-  .header-name {
-    float: left;
+  .header {
+    width: 20%;
+    display: inline-block;
+    justify-content: center;
+    margin: auto;
   }
 
-  .header-family {
-    padding-left: 1em;
-  }
-
-  .header-ac {
-    padding-left: 1em;
-  }
-  
-  .header-hp {
-    padding-left: 1em;
-  }
-
-  .header-level {
-    padding-left: 1em;
+  .level {
+    max-height: 70%;
+    border: 1px solid #D4AF37;
+    display: inline;
+    padding: 0px 3px 0px 3px;
   }
 
 

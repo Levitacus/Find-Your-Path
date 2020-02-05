@@ -28,7 +28,7 @@ export default class App extends React.Component {
         <div className='container-fluid'>
           <Navbar />
           <br/>
-          <Route path='/' exact component={HomePage} />
+          <Route path='/Find-Your-Path' exact component={HomePage} />
           <Route path='/monsters' exact component={EncounterBuilder} />
           <Route path='/users/register' component={RegisterUser} />
           <Route path='/users/login' component={Login} />
