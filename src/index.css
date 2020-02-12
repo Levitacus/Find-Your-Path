@@ -8,12 +8,16 @@ body {
   max-height: 100px;
 }
 
-.navbar-item{
-  margin-left: 2rem;
+.navbar {
+  background-color: #343a40;
 }
 
-a {
-  color: white !important;
+.profile-nav {
+  margin-left: 2em;
+}
+
+.nav-item, .navbar-brand{
+  color: white;
 }
 
 a:hover {
@@ -51,9 +55,9 @@ a:hover {
   }
 
   /* Accordion Styles */
-  .accordion-section {
+  .monster-accordion {
     overflow-y: scroll;
-    height: calc(100vh - 100px - 2rem);
+    height: calc(100vh - 100px - 3rem);
   }
 
   .fillparent {
@@ -66,14 +70,12 @@ a:hover {
 
   /* Card Header */
   .card-header-custom {
-    display: block;
+    display: inline-block;
   }
 
-  .header {
-    width: 20%;
-    display: inline-block;
-    justify-content: center;
-    margin: auto;
+  .accordion-header {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .level {
@@ -85,11 +87,6 @@ a:hover {
 
 
   /* Card Body */
-  .card-body {
-    display: grid;
-    grid-template-columns: auto auto auto;
-  }
-
   .stat-block {
     display: block;
     list-style-type: none;

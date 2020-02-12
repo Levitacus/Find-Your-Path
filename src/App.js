@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Navbar from './components/navbar.component';
+import Navigation from './components/navigation.component';
 import RegisterUser from './components/registerUser.component';
 import Login from './components/login.component';
 import EncounterBuilder from './components/encounterBuilder.component';
@@ -25,8 +25,8 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className='container-fluid'>
-          <Navbar />
+        <div>
+          <Navigation />
           <br/>
           <Route path='/Find-Your-Path' exact component={HomePage} />
           <Route path='/monsters' exact component={EncounterBuilder} />
