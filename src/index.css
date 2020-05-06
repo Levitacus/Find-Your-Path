@@ -31,82 +31,138 @@ a:hover {
   animation-iteration-count: 1;
   }
   
-  @keyframes buttonAnimation {
+@keyframes buttonAnimation {
   /* wave animation */
   0% { opacity:1; transform:scale(1)}
   100% { opacity:0; transform:scale(2); }
-  }
+}
   
-  .signup-sm {
-    min-width: 330px;
-    max-width: 384px;
-    max-height: 500px;
-    border-radius: 5%;
-  }
+.signup-sm {
+  min-width: 330px;
+  max-width: 384px;
+  max-height: 500px;
+  border-radius: 5%;
+}
 
-  .fg-light {
-    color: white;
-  }
+.fg-light {
+  color: white;
+}
 
-  .centered {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-  }
+.centered {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 
-  /* Accordion Styles */
-  .monster-accordion {
-    overflow-y: scroll;
-    height: calc(100vh - 100px - 3rem);
-  }
+/* Entire Encounter Builder Body */
+.encounter-builder {
+  display: flex;
+}
+/* Accordion Styles */
+.monster-accordion {
+  overflow-y: scroll;
+  height: calc(100vh - 100px - 3rem);
+  width: 60%;
+}
 
-  .fillparent {
-    width: 100%;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
+.fillparent {
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
 
-  /* Card Header */
-  .card-header-custom {
-    display: inline-block;
-  }
+.sub-accordion {
+  padding: 0 !important;
+  background-color: white;
+}
 
-  .accordion-header {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
+@media screen and (max-width:1200px) {
+.encounter-builder { flex-wrap: wrap; }
+.monster-accordion { flex-basis: 100%; }
+.encounter-monsters { display: none; }
+}
 
-  .level {
-    max-height: 70%;
-    border: 1px solid #D4AF37;
-    display: inline;
-    padding: 0px 3px 0px 3px;
-  }
+/* Card Header */
+.card-header-custom {
+  display: inline-block;
+  word-wrap: none;
+}
+
+.accordion-header {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.level {
+  max-height: 70%;
+  border: 1px solid #D4AF37;
+  display: inline;
+  padding: 0px 3px 0px 3px;
+}
 
 
-  /* Card Body */
-  .stat-block {
-    display: block;
-    list-style-type: none;
-    overflow: hidden;
-    padding: 0px;
-  }
+/* Card Body */
+.card-list {
+  display: block;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+}
 
-  .stat-item {
-    display: block;
-    float: left;
-    width: 33%;
-    /*border: 1px solid black;*/
-    padding: 0px;
-  }
+.card-list-item {
+  display: inline;
+  /*border: 1px solid black;*/
+  padding-right: .2rem;
+}
 
-  .flex-start {
-    align-self: flex-start;
-  }
+.flex-start {
+  align-self: flex-start;
+}
 
-  .text-description {
-    overflow-y: scroll;
-    max-height: 200px;
-  }
+.text-description {
+  overflow-y: scroll;
+  max-height: 200px;
+}
+.card-trait {
+  display: inline;
+  border: solid orange 2px;
+  background-color: forestgreen;
+  color: white;
+  padding: 0px 2px 0px 2px;
+  margin: 2px;
+}
+
+/* 
+Encounter Side 
+*/
+
+.encounter-monsters {
+  flex: 1;
+}
+
+/* Empty Encounter */
+
+.empty-encounter {
+  background-color: rgba(211, 211, 211, .5);
+  text-align: center;
+  color: black;
+  width: 100%;
+  height: 100%;
+  align-self: flex-end;
+}
+
+.encounter-accordion {
+  overflow-y: scroll;
+  height: calc(100vh - 100px - 3rem);
+}
+
+.add-to-encounter-button {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  left: 90%;
+  top: 1.5em;
+  padding: 0px !important;
+}
