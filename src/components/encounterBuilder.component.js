@@ -190,7 +190,7 @@ const ActionAccordion = props => {
             <span>{colonSeperated('Trigger', action.trigger)} </span>
             <span>{colonSeperated('Effect', action.effect)}</span>
             </p>
-            <p>{action.text}</p>
+            <p>{(action.text)? action.text : null}</p>
             </Card.Body>
           </Accordion.Collapse>
           </Card>
@@ -210,14 +210,14 @@ const SpellAccordion = props => {
           return ((Object.keys(spellsByLevel).includes('spells')) ? (spellsByLevel.spells.map((spell, index) => {
           return (
             <Card>
-            <Accordion.Toggle as={Card.Header} eventKey={index}>
+            <Accordion.Toggle as={Card.Header} eventKey={`${index}-${spell.name}`}>
               <p><b>{`${returnIfExists(spell.name)}(${returnIfExists(spell.actions)})${returnIfExists(spell.constraint)} --- ${'Level ' + spell.level}`}</b></p>
               <p>{colonSeperated('Cast', listWithCommas(returnIfExists(spell.cast)))}</p>
-              <p>{colonSeperated('Range', spell.range)}; {colonSeperated('Targets', spell.targets)}</p>
-              <p>{colonSeperated('Saving Throw', spell.savingthrow)}</p>
+              <p>{colonSeperated('Area', spell.area)}{((spell.area && spell.targets)||(spell.area && spell.range)) ? '; ' : null}{colonSeperated('Range', spell.range)}{(spell.range && spell.targets) ? '; ' : null}{colonSeperated('Targets', spell.targets)}</p>
+              <p>{colonSeperated('Saving Throw', spell.savingthrow)}{(spell.savingthrow && spell.duration) ? '; ' : null} {colonSeperated('Duration', spell.duration)}</p>
               <p><b></b></p>
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey={index}>
+            <Accordion.Collapse eventKey={`${index}-${spell.name}`}>
               <Card.Body>
                 <ul className='card-list'>
                   {(spell.traits != null) ? spell.traits.map((elem) => {
@@ -225,7 +225,13 @@ const SpellAccordion = props => {
                   }) : null}
                 </ul>
                 <p><b>{`${spell.text} (${spell.actions})`}</b></p>
-                <p><b>Damage: {spell.damage}</b></p>
+                <p><b>{(spell.damage)? `Damage: ${spell.damage}` : null}</b></p>
+                <span>------------------</span>
+                {
+                  (Object.keys(spell).includes('heightened')) ? Object.entries(spell.heightened).map((heightened) => {
+                    return(<p>{colonSeperated(`Heightened(${textToNum(heightened[0])})`, heightened[1])}</p>)
+                  }) : ''
+                }
               </Card.Body>
             </Accordion.Collapse>
             </Card>
@@ -289,9 +295,26 @@ function capitalize(str) {
 }
 
 function returnIfExists(obj) {
-  return (obj!=null) ? obj : ''
+  return (obj) ? obj : ''
 }
 
 function colonSeperated(antecedent, subject) {
   return ((subject) ? <><b>{antecedent}</b>: {subject}</> : '')
+}
+
+function textToNum(text) {
+  const alphas = {
+    one: '1',
+    two: '2',
+    three: '3',
+    four: '4',
+    five: '5',
+    six: '6',
+    seven: '7',
+    eight: '8',
+    nine: '9',
+    plusone: '+1',
+    plustwo: '+2'
+  };
+  return alphas[text];
 }
